@@ -1,29 +1,20 @@
-import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.ArrayList;
+
 
 class Solution {
     public int[] solution(String my_string) {
-
-        String nums = "";
-
-        // 숫자만 추출
-        for(int i = 0; i < my_string.length(); i++) {
-
-            if('0' <= my_string.charAt(i) && my_string.charAt(i) <= '9') {
-                nums += my_string.charAt(i);
-            }
+        List<Integer> list = new ArrayList<>();
+        for(int i=0; i<my_string.length(); i++){
+            if('0'<=my_string.charAt(i)&&my_string.charAt(i)<='9')
+            list.add((int)(my_string.charAt(i)-'0'));
         }
-
-        // 문자열 길이만큼 배열 생성
-        int[] answer = new int[nums.length()];
-
-        // 문자 → 숫자 변환
-        for(int i = 0; i < nums.length(); i++) {
-            answer[i] = nums.charAt(i) - '0';
+        Collections.sort(list);
+        int[] answer = new int[list.size()];
+        for(int i=0; i<list.size(); i++){
+            answer[i] = list.get(i);
         }
-
-        // 오름차순 정렬
-        Arrays.sort(answer);
-
         return answer;
     }
 }
