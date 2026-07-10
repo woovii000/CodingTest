@@ -1,0 +1,17 @@
+def solution(brown, yellow):
+    # g*s 형태(g >= s) -> 조합 찾기
+    # 카펫 패턴 - i**2 , n*m
+    # b, y
+    carpet = brown + yellow
+    answer = []
+    def pattern(ga, se):   
+        nonlocal answer
+        
+        if ga*se == carpet and ga-se >=0:
+            answer.append([ga, se])
+            return
+        
+        patter(ga+1, se)
+        patter(ga+1, se+1)
+        
+    return answer
