@@ -1,0 +1,13 @@
+def solution(word):                                      
+    answer = 0
+    vowel = ['A','E','I','O','U']
+    w = []
+    def dfs(make):
+        for i in vowel:
+            if ''.join(make) == word:
+                break
+            make.append(i)
+            answer += 1
+            dfs(make)
+    dfs(w)
+    return answer
